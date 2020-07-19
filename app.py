@@ -51,7 +51,7 @@ def start_session(session):
         f'/u:{user}',
         f'/d:{domain}',
         f'/v:{hostname}:{port}',
-        f'/t:"RDP: {name}"',
+        f'/t:RDP: {name}',
         f'/from-stdin',
         f'+toggle-fullscreen',
         f'+auto-reconnect',
