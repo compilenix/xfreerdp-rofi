@@ -1,0 +1,33 @@
+{
+    "ExecutableOverwride": "/tmp/freerdp-build/xfreerdp",
+    "DefaultWindowSize": {
+        "w": 2560,
+        "h": 1395
+    },
+    "DisableSound": true,
+    "Floatbar": "fullscreen",
+    "Sessions": [
+        {
+            "Name": "HOME - Server Name (UserName)",
+            "HostName": "1.2.3.4",
+            "Domain": ".",
+            "User": "local username",
+            "Password": "cGFzc3dvcmQK",
+            "Network": "wan",
+            "Compression": "2"
+        },
+        {
+            "Name": "HOME - Server Name (UserName)",
+            "HostName": "1.2.3.4",
+            "Port": 49636,
+            "Domain": "domain.local",
+            "User": "domain username",
+            "Password": "cGFzc3dvcmQK",
+            "Fullscreen": false,
+            "Network": "wan",
+            "Compression": "2",
+            "Admin": true
+        }
+    ]
+}
+
