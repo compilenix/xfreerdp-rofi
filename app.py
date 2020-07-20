@@ -46,6 +46,7 @@ def start_session(session):
     name = session['Name']
     hostname = session['HostName']
     floatbar = session['Floatbar'] if 'Floatbar' in session else config['Floatbar']
+    network = 'lan'
     required_parameters = [
         executable,
         f'/u:{user}',
@@ -87,8 +88,9 @@ def start_session(session):
         optional_parameters.append(f'/h:{config["DefaultWindowSize"]["h"]}')
 
     if 'Network' in session:
+        network = session['Network']
         if session['Network'] == 'wan':
-            optional_parameters.append(f'/network:{session["Network"]}')
+            optional_parameters.append(f'/network:{network}')
             optional_parameters.append(f'-wallpaper')
             optional_parameters.append(f'-themes')
             optional_parameters.append(f'-decorations')
@@ -96,9 +98,9 @@ def start_session(session):
             optional_parameters.append(f'-menu-anims')
             optional_parameters.append(f'-window-drag')
         else:
-            optional_parameters.append(f'/network:{session["Network"]}')
+            optional_parameters.append(f'/network:{network}')
     else:
-        optional_parameters.append(f'/network:{session["Network"]}')
+        optional_parameters.append(f'/network:{network}')
         optional_parameters.append(f'+wallpaper')
         optional_parameters.append(f'+themes')
         optional_parameters.append(f'+decorations')
