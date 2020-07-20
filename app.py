@@ -74,7 +74,7 @@ def start_session(session):
         f'/async-input',
         f'/frame-ack:1',
         f'+fonts',
-        '/floatbar:sticky:on,default:visible,show:' + floatbar,
+        f'/floatbar:sticky:on,default:visible,show:{floatbar}',
         f'-encryption',
         f'/cert-ignore',
     ]
