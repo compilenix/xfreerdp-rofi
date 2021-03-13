@@ -26,12 +26,12 @@ sessions = sorted(sessions, key=lambda session: session['Name'])
 
 def run_command(command, input):
     process = Popen(
-            args=command,
-            stdin=PIPE,
-            stdout=sys.stdout,
-            stderr=sys.stderr,
-            encoding='utf-8',
-        )
+        args=command,
+        stdin=PIPE,
+        stdout=sys.stdout,
+        stderr=sys.stderr,
+        encoding='utf-8',
+    )
     process.stdin.write(input)
     process.stdin.flush()
     process.communicate()
@@ -57,12 +57,9 @@ def start_session(session):
         f'+toggle-fullscreen',
         f'+auto-reconnect',
         f'/auto-reconnect-max-retries:20',
-        f'+drives',
-        f'+home-drive',
         f'/dynamic-resolution',
         f'+clipboard',
         f'+mouse-motion',
-        f'/rfx',
         f'/gdi:hw',
         f'/video',
         f'/ipv6',
