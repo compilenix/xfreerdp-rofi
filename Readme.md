@@ -29,11 +29,14 @@ One of:
 Use this specific xfreerdp executable instead of `xfreerdp`.
 
 ## DefaultWindowSize (optional)
-### w (optional)
+### x (optional)
 The custom window weight in pixel.
 
-### h (optional)
+### y (optional)
 The custom window height in prixel.
+
+### DynamicResolution (optional)
+Send resolution updates when the window is resized
 
 ## DisableSound (optional)
 set to `true` if you want to disable sound redirection to your client.
