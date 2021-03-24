@@ -1,9 +1,10 @@
 {
-    "ExecutableOverwride": "/tmp/freerdp-build/xfreerdp",
+    "ExecutableOverwride": "/tmp/build-freerdp/wlfreerdp",
     "DefaultWindowSize": {
-        "w": 2560,
-        "h": 1395
+        "x": 2560,
+        "y": 1390
     },
+    "DynamicResolution": false,
     "DisableSound": true,
     "Floatbar": "fullscreen",
     "Sessions": [

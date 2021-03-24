@@ -53,36 +53,42 @@ def start_session(session):
         f'/d:{domain}',
         f'/v:{hostname}:{port}',
         f'/t:RDP: {name}',
-        f'/from-stdin',
-        f'+toggle-fullscreen',
-        f'+auto-reconnect',
-        f'/auto-reconnect-max-retries:20',
-        f'/dynamic-resolution',
-        f'+clipboard',
-        f'+mouse-motion',
-        f'/gdi:hw',
-        f'/video',
-        f'/ipv6',
-        f'+multitransport',
-        f'+multitouch',
-        f'/geometry',
-        f'+gestures',
-        f'+offscreen-cache',
-        f'/async-update',
-        f'/async-input',
-        f'/frame-ack:1',
-        f'+fonts',
+        '/from-stdin',
+        '+toggle-fullscreen',
+        '+auto-reconnect',
+        '/auto-reconnect-max-retries:20',
+        '+clipboard',
+        '+mouse-motion',
+        '/gdi:hw',
+        '/ipv6',
+        '+multitransport',
+        '+multitouch',
+        '/geometry',
+        '+gestures',
+        '+offscreen-cache',
+        '+bitmap-cache',
+        '+glyph-cache',
+        '/jpeg',
+        '+async-channels',
+        '+async-update',
+        '+async-input',
+        '/frame-ack:1',
+        '+fonts',
+        '-grab-keyboard',
         f'/floatbar:sticky:on,default:visible,show:{floatbar}',
-        f'-encryption',
-        f'/cert-ignore',
+        '/cert:tofu',
+        '/log-level:WARN'
     ]
     optional_parameters = []
 
     if 'Fullscreen' in session and session['Fullscreen'] == True:
         optional_parameters.append('/f')
-    else:
-        optional_parameters.append(f'/w:{config["DefaultWindowSize"]["w"]}')
-        optional_parameters.append(f'/h:{config["DefaultWindowSize"]["h"]}')
+
+    if 'DefaultWindowSize' in config and 'x' in config["DefaultWindowSize"] and 'y' in config["DefaultWindowSize"]:
+        optional_parameters.append(f'/size:{config["DefaultWindowSize"]["x"]}x{config["DefaultWindowSize"]["y"]}')
+
+    if 'DynamicResolution' in config and config["DynamicResolution"] == True:
+        optional_parameters.append('/dynamic-resolution')
 
     if 'Network' in session:
         network = session['Network']
